@@ -25,6 +25,9 @@ var MAPCANVASDIV = "map-canvas";
     return map;
   }
 
+  /* Single info window that opens on top of the marker that is clicked */
+  var org_info_window = new google.maps.InfoWindow();
+
   /*
   Fills in the org_markers with the created marker based on the org_link
   Places each created marker onto orgmap(global variable at this time because
@@ -64,10 +67,10 @@ var MAPCANVASDIV = "map-canvas";
         });
         org_markers.push(orgmarker);
         google.maps.event.addListener(orgmarker, 'click', function() {
-          var iw = new google.maps.InfoWindow({
-            content: "<a href=\""+ org_link[1] + "\">" + org_link[4] + "</a>"
-          });
-          iw.open(orgmap, orgmarker);
+          org_info_window.setContent(
+            "<a href=\""+ org_link[1] + "\" target=\"_blank\">" + org_link[4] + "</a>"
+          );
+          org_info_window.open(orgmap, orgmarker);
         });
       }
     )
