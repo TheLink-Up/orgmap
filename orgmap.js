@@ -25,7 +25,6 @@ var MAPCANVASDIV = "map-canvas";
     return map;
   }
 
-  var org_markers = [];
   /*
   Fills in the org_markers with the created marker based on the org_link
   Places each created marker onto orgmap(global variable at this time because
@@ -38,6 +37,7 @@ var MAPCANVASDIV = "map-canvas";
   [3] -> State
   [4] -> Link name
   */
+  var org_markers = [];
   function make_org_marker(org_link) {
     var geo = new google.maps.Geocoder();
     var citystate = org_link[2] + ',' + org_link[3];
@@ -50,11 +50,25 @@ var MAPCANVASDIV = "map-canvas";
         var latlng = georesult[0].geometry.location;
         console.log(org_link[4]);
         console.log(latlng);
+        /*
+        var attribution = new google.maps.Attribution({
+          source: org_link[4],
+          webUrl: org_link[1]
+        });
+        */
         var orgmarker = new google.maps.Marker({
           map: orgmap,
-          position: latlng
+          position: latlng,
+          title: org_link[4]
+          /*attribution: attribution*/
         });
         org_markers.push(orgmarker);
+        google.maps.event.addListener(orgmarker, 'click', function() {
+          var iw = new google.maps.InfoWindow({
+            content: "<a href=\""+ org_link[1] + "\">" + org_link[4] + "</a>"
+          });
+          iw.open(orgmap, orgmarker);
+        });
       }
     )
   }
