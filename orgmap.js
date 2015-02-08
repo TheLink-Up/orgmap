@@ -9,6 +9,14 @@ var APIKEY = "";
 var ORGPAGEURL = "";
 /* The div id to put the map into */
 var MAPCANVASDIV = "map-canvas";
+/* Center coordinates to load for the initial map load */
+var MAPCENTER = { lat: 50, lng: -114};
+/* 
+  Initial zoom level of the map
+  0 -> Furthest out zoom
+  12 -> Closest zoom level
+*/
+var MAPZOOMLEVEL = 3;
 </script>
 <script type="text/javascript"
   src="https://maps.googleapis.com/maps/api/js?key=APIKEY">
@@ -125,8 +133,8 @@ var MAPCANVASDIV = "map-canvas";
     if( mapdivel == null ) return;
     mapdivel.style.height = '1024px';
     var map_options = {
-      center: { lat: 39.5, lng: -98.35},
-      zoom: 3
+      center: MAPCENTER,
+      zoom: MAPZOOMLEVEL
     };
     orgmap = createMap(map_div, map_options);
     load_org_links(ORGPAGEURL);
