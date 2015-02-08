@@ -29,3 +29,22 @@ The format is as follows:
 ```
 <a href="http://www.example.com#city,state">Org Name</a>
 ```
+
+The link will then be parsed as follows:
+
+* Url: http://www.example.com
+* City: city
+* State: state
+* Name: Org Name
+
+Then a query to Google's Geolocation service will be made for every link found using
+
+```
+city,state
+```
+
+as the address query.
+
+The result from that query will determine the location of the marker.
+The title(roll-over text) of the marker will be the Name and the url will be placed inside of the pop-up box
+
