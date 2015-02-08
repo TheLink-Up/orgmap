@@ -19,3 +19,13 @@ This map should work on any Ning network, but is specifically designed for [TheL
    ```
    <div id="map-canvas"></div>
    ```
+
+# Organization Page
+
+Your organization's page just needs to have links that follow a specific format. The orgmap.js will automatically find them all and put them on the map for you.
+
+The format is as follows:
+
+```
+<a href="http://www.example.com#city,state">Org Name</a>
+```
