@@ -13,8 +13,8 @@ This map should work on any Ning network, but is specifically designed for [TheL
 5. Follow the Obtaining an API Key tutorial from [here](https://developers.google.com/maps/documentation/javascript/tutorial) to get a google maps api key
 6. Put the key in the APIKEY variable and also replace APIKEY in the url below that with your api key
 7. You can customize the map slightly by modifying MAPCENTER and MAPZOOMLEVEL if you want. By default it is set to show all of North America and centered just around Calgary, CA
-8. Click save
-9. Set the ORGPAGEURL to the url of your Ning page that contains your organizations
+8. Set the ORGPAGEURL to the url of your Ning page that contains your organizations
+9. Click save
 10. Create a new page in your network that will hold your map
 11. Edit the page and switch the editor to the html view
 12. Paste the following html code into the box which will be automatically replaced with your map
