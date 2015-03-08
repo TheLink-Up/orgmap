@@ -1,0 +1,65 @@
+###
+# app configuration
+# http://docs.pylonsproject.org/projects/pyramid/en/1.5-branch/narr/environment.html
+###
+
+[app:main]
+use = egg:orgmap
+
+pyramid.reload_templates = false
+pyramid.debug_authorization = false
+pyramid.debug_notfound = false
+pyramid.debug_routematch = false
+pyramid.default_locale_name = en
+pyramid.includes = pyramid_tm
+
+# Path to your sqlite database to cache your organizations in
+sqlalchemy.url = sqlite:///%(here)s/orgs.sqlite
+# Service to use with gopy
+# http://geopy.readthedocs.org/en/latest/#module-geopy.geocoders
+# For now, only geocoder services that accept api_key as argument
+# will work(aka, googlev3, bing, Baidu, ...)
+geocode_service = googlev3
+# Your api_key
+geocode_apikey = AIzaSyCnFCp4UPBS3sHwWz9KHnpG-hbBGXfmtVs
+
+###
+# wsgi server configuration
+###
+
+[server:main]
+use = egg:waitress#main
+host = 0.0.0.0
+port = 6543
+
+###
+# logging configuration
+# http://docs.pylonsproject.org/projects/pyramid/en/1.5-branch/narr/logging.html
+###
+
+[loggers]
+keys = root, orgmap
+
+[handlers]
+keys = console
+
+[formatters]
+keys = generic
+
+[logger_root]
+level = WARN
+handlers = console
+
+[logger_orgmap]
+level = WARN
+handlers =
+qualname = orgmap
+
+[handler_console]
+class = StreamHandler
+args = (sys.stderr,)
+level = NOTSET
+formatter = generic
+
+[formatter_generic]
+format = %(asctime)s %(levelname)-5.5s [%(name)s][%(threadName)s] %(message)s

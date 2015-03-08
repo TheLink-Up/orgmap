@@ -1,0 +1,1 @@
+${callback}({'lat': ${lat}, 'lng': ${lng}}) 
