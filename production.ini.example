@@ -21,7 +21,7 @@ sqlalchemy.url = sqlite:///%(here)s/orgs.sqlite
 # will work(aka, googlev3, bing, Baidu, ...)
 geocode_service = googlev3
 # Your api_key
-geocode_apikey = AIzaSyCnFCp4UPBS3sHwWz9KHnpG-hbBGXfmtVs
+geocode_apikey = PUT_YOUR_API_KEY_HERE
 
 ###
 # wsgi server configuration
