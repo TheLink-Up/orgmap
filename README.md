@@ -51,3 +51,19 @@ as the address query.
 The result from that query will determine the location of the marker.
 The title(roll-over text) of the marker will be the Name and the url will be placed inside of the pop-up box
 
+## Install orgmap cacher
+
+For bluehost
+
+#. Ensure you have python 2.7+ installed
+#. git clone repo under ~/
+#. cd orgmap
+#. configure production.ini
+#. setup virtualenv under env
+#. source env/bin/activate
+#. python setup.py install
+#. pip install -r requirements-dev.txt
+#. mkdir ~/public_html/orgmap
+#. Edit orgmap.fcgi to have correct paths
+#. cp .htaccess orgmap.fcgi ~/public_html/orgmap
+#. chmod 755 ~/public_html/orgmap
