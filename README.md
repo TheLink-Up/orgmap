@@ -55,15 +55,15 @@ The title(roll-over text) of the marker will be the Name and the url will be pla
 
 For bluehost
 
-#. Ensure you have python 2.7+ installed
-#. git clone repo under ~/
-#. cd orgmap
-#. configure production.ini
-#. setup virtualenv under env
-#. source env/bin/activate
-#. python setup.py install
-#. pip install -r requirements-dev.txt
-#. mkdir ~/public_html/orgmap
-#. Edit orgmap.fcgi to have correct paths
-#. cp .htaccess orgmap.fcgi ~/public_html/orgmap
-#. chmod 755 ~/public_html/orgmap
+# Ensure you have python 2.7+ installed
+# git clone repo under ~/
+# cd orgmap
+# configure production.ini
+# setup virtualenv under env
+# source env/bin/activate
+# python setup.py install
+# pip install -r requirements-dev.txt
+# mkdir ~/public_html/orgmap
+# Edit orgmap.fcgi to have correct paths
+# cp .htaccess orgmap.fcgi ~/public_html/orgmap
+# chmod 755 ~/public_html/orgmap
