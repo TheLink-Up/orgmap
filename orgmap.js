@@ -1,3 +1,4 @@
+<script type="text/javascript">
 /* 
   Google Maps Javascript API Key
   I don't know how to get this to dynamically get
@@ -17,6 +18,13 @@ var MAPCENTER = { lat: 50, lng: -114};
   12 -> Closest zoom level
 */
 var MAPZOOMLEVEL = 3;
+</script>      
+<script type="text/javascript"     
+  src="https://maps.googleapis.com/maps/api/js?key=APIKEY">        
+</script>      
+<script type="text/javascript"     
+  src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">      
+</script>      
   function createMap(divid, map_options) {
     var map = new google.maps.Map(
         document.getElementById(divid),
@@ -42,7 +50,7 @@ var MAPZOOMLEVEL = 3;
   */
   var org_markers = [];
 function make_org_marker(org_link) {
-    $.ajax({
+    jQuery.ajax({
         url: ORGMAPAPI,
         jsonp: "callback",
         dataType: "jsonp",
@@ -117,7 +125,7 @@ function make_org_marker(org_link) {
   */
   var orglinks = null;
   function load_org_links(pageurl) {
-    $.get(pageurl, function(orgpagehtml){
+    jQuery.get(pageurl, function(orgpagehtml){
       orglinks = get_org_links(orgpagehtml);
     })
   }
@@ -139,3 +147,9 @@ function make_org_marker(org_link) {
     orgmap = createMap(map_div, map_options);
     load_org_links(ORGPAGEURL);
   }
+</script>      
+<script type="text/javascript">        
+  google.maps.event.addDomListener(window, 'load', function(){     
+    load_org_map(MAPCANVASDIV);        
+  });      
+</script>
