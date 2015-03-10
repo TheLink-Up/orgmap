@@ -1,0 +1,47 @@
+<head>
+    <head>
+        <script type="text/javascript" 
+            src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
+        </script>
+        <script type='text/javascript'>
+            // Using YQL and JSONP
+            $.ajax({
+                url: "http://2badplaids.com/orgmap/org",
+             
+                // The name of the callback parameter, as specified by the YQL service
+                jsonp: "callback",
+             
+                // Tell jQuery we're expecting JSONP
+                dataType: "jsonp",
+             
+                // Tell YQL what we want and that we want JSON
+                data: {
+                    city: "billings",
+                    state: "mt",
+                    url: "http://foo.bar",
+                    name: "test",
+                    format: "json"
+                },
+             
+                // Work with the response
+                success: function( response ) {
+                    var j = JSON.parse(response);
+                    console.log(j);
+                    console.log(typeof j);
+                    var h = '';
+                    h = j.lat;
+                    $('#content').text(h);
+                    $('#content').css({
+                        'width': '200px',
+                        'height': '50px',
+                        'border': '1px solid black'
+                    });
+                }
+            });
+        </script>
+    </head>
+    <body>
+        <div id='content'>
+        </div>
+    </body>
+</head>
